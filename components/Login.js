@@ -45,7 +45,7 @@ const Login = ({ navigation }) => {
               secureTextEntry
               placeholderTextColor="#FFF"
             />
-            <TouchableOpacity onPress={() => navigation.navigate('ForgoutPassaword')}>
+            <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
               <Text style={styles.forgotPassword}>Esqueceu sua senha?</Text>
             </TouchableOpacity>
             <View style={styles.buttonContainer}>
