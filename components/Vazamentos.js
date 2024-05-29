@@ -72,17 +72,8 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 25,
   },
-  topic: {
-    fontWeight: 'bold',
-  },
-  content: {
-    marginLeft: 10,
-  },
-  logoutIcon: {
-    width: 50,
-    height: 50,
-    marginBottom: 20,
-  },
+ 
+
 });
 
 export default Vazamentos;
