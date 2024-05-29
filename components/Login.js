@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
-import { View, ImageBackground, Text, TextInput, Button, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, ImageBackground, Text, TextInput, Button, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import axios from 'axios';
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
   const fazerLogin = () => {
-    if (email === 'admin@teste.com' && senha === 'abc123') {
-      navigation.navigate('Home'); 
-    } else {
-      alert('Usuário ou senha inválidos!'); 
-    }
+    axios.get('http://localhost:3000/users')
+      .then(response => {
+        const users = response.data;
+        const user = users.find(user => user.email === email && user.senha === senha);
+
+        if (user) {
+          navigation.navigate('Home');
+        } else {
+          Alert.alert('Erro', 'Usuário ou senha inválidos!');
+        }
+      })
+      .catch(error => {
+        console.error('Erro ao fazer login:', error);
+        Alert.alert('Erro', 'Ocorreu um erro ao fazer login.');
+      });
   };
 
   return (
