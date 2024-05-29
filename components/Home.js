@@ -14,7 +14,7 @@ const logout = () => {
       <ImageBackground source={require('../assets/Captura de tela de 2024-05-29 13-44-55.png')} style={styles.backgroundImage}>
         <Text style={styles.subtitle}>OceanTech</Text>
         <View style={styles.row}>
-          <TouchableOpacity onPress={() => navigation.navigate('SobreNos')}>
+          <TouchableOpacity onPress={() => navigation.navigate('About')}>
             <View style={styles.buttonContainer}>
               <Image
                 source={require('../assets/7998670.png')}
@@ -32,7 +32,7 @@ const logout = () => {
               <Text style={styles.buttonText}>Vazamentos</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Ajudar')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Help')}>
             <View style={[styles.buttonContainer, styles.helpButtonContainer]}>
               <Image
                 source={require('../assets/7247540.png')}
