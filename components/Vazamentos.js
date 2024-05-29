@@ -73,7 +73,11 @@ const styles = StyleSheet.create({
     lineHeight: 25,
   },
  
-
+  logoutIcon: {
+    width: 50,
+    height: 50,
+    marginBottom: 20,
+  },
 });
 
 export default Vazamentos;
