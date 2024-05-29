@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
 const Register = ({ navigation }) => {
@@ -66,6 +66,9 @@ const Register = ({ navigation }) => {
         title="Cadastrar"
         onPress={cadastrarUsuario}
       />
+       <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <Text style={styles.backToLogin}>Voltar para o Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -81,6 +84,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+  },
+  backToLogin: {
+    marginTop: 20,
+    color: '#0034ED',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   input: {
     width: '100%',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, Alert, TouchableOpacity, StyleSheet } from 'react-native';
 import axios from 'axios';
 
 const ForgotPassword = ({ navigation }) => {
@@ -59,6 +59,9 @@ const ForgotPassword = ({ navigation }) => {
         title="Redefinir Senha"
         onPress={resetarSenha}
       />
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <Text style={styles.backToLogin}>Voltar para o Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -83,6 +86,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10,
     paddingHorizontal: 10,
+  },
+  backToLogin: {
+    marginTop: 20,
+    color: '#0034ED',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
