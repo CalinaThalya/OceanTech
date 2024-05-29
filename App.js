@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './components/Home'
 import Login from './components/Login';
 import Help from './components/Help';
+import About from './components/About';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,11 @@ const App = () => {
           name="Help" 
           component={Help}
           options={{ title: 'Help' }} 
+          />
+            <Stack.Screen
+          name="About" 
+          component={About}
+          options={{ title: 'About' }} 
           />
       </Stack.Navigator>
     </NavigationContainer>

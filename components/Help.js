@@ -1,11 +1,18 @@
 import React from 'react';
-import { View, ImageBackground, Text, StyleSheet } from 'react-native';
+import { View, ImageBackground, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import Home from './Home'; 
 
-const Help = () => {
+const Help = ({ navigation }) => {
+  const goToHome = () => {
+    navigation.navigate('Home'); 
+  };
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/laser para monitoramento dos oceanos - NASA - CALIOP.jpg')} style={styles.backgroundImage}>
         <View style={styles.overlay}>
+          <Text style={styles.title}>COMO AJUDAR ?</Text>
+          <View style={styles.overlay}>
           <Text style={styles.title}>COMO AJUDAR ?</Text>
           <Text style={styles.text}>
             <Text style={styles.topic}>Redução do Uso de Plástico:</Text>
@@ -38,7 +45,14 @@ const Help = () => {
             <Text style={styles.topic}>Participação em Programas de Monitoramento:</Text>
             <Text style={styles.content}> Incentive a participação em programas de monitoramento da qualidade da água e da vida marinha, para ajudar cientistas e pesquisadores a entender melhor os ecossistemas oceânicos e identificar áreas de preocupação.</Text>
           </Text>
+          </View>
         </View>
+        <TouchableOpacity onPress={goToHome}> 
+          <Image
+            source={require('../assets/216242_home_icon.png')}
+            style={styles.logoutIcon}
+          />
+        </TouchableOpacity>
       </ImageBackground>
     </View>
   );
@@ -78,6 +92,11 @@ const styles = StyleSheet.create({
   },
   content: {
     marginLeft: 10,
+  },
+  logoutIcon: {
+    width: 50,
+    height: 50,
+    marginBottom: 20,
   },
 });
 
