@@ -7,6 +7,7 @@ import Help from './components/Help';
 import About from './components/About';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgoutPassaword';
+import Vazamentos from './components/Vazamentos';
 
 const Stack = createStackNavigator();
 
@@ -43,6 +44,11 @@ const App = () => {
           name="ForgotPassword" 
           component={ForgotPassword}
           options={{ title: 'ForgotPassword' }} 
+          />
+            <Stack.Screen
+          name="Vazamentos" 
+          component={Vazamentos}
+          options={{ title: 'Vazamentos' }} 
           />
       </Stack.Navigator>
     </NavigationContainer>

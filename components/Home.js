@@ -1,53 +1,37 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { ImageBackground } from 'react-native-web';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native';
 
-const Home = ({ navigation }) =>  {
-  
-const logout = () => {
-  navigation.navigate('Login');
-};
-
+const Home = ({ navigation }) => {
+  const logout = () => {
+    navigation.navigate('Login');
+  };
 
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/Captura de tela de 2024-05-29 13-44-55.png')} style={styles.backgroundImage}>
-        <Text style={styles.subtitle}>OceanTech</Text>
-        <View style={styles.row}>
-          <TouchableOpacity onPress={() => navigation.navigate('About')}>
-            <View style={styles.buttonContainer}>
-              <Image
-                source={require('../assets/7998670.png')}
-                style={styles.buttonIcon}
-              />
-              <Text style={styles.buttonText}>Sobre Nós</Text>
-            </View>
+        <View style={styles.header}>
+          <Text style={styles.title}>OceanTech</Text>
+        </View>
+        <View style={styles.buttonGrid}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('About')}>
+            <Image source={require('../assets/7998670.png')} style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>Sobre Nós</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Vazamentos')}>
-            <View style={styles.buttonContainer}>
-              <Image
-                source={require('../assets/6324639.png')}
-                style={styles.buttonIcon}
-              />
-              <Text style={styles.buttonText}>Vazamentos</Text>
-            </View>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Vazamentos')}>
+            <Image source={require('../assets/6324639.png')} style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>Vazamentos</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Help')}>
-            <View style={[styles.buttonContainer, styles.helpButtonContainer]}>
-              <Image
-                source={require('../assets/7247540.png')}
-                style={styles.buttonIcon}
-              />
-              <Text style={styles.buttonText}>Como ajudar?</Text>
-            </View>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Help')}>
+            <Image source={require('../assets/7247540.png')} style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>Como ajudar?</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={logout}>
-          <Image
-            source={require('../assets/1723876.png')}
-            style={styles.logoutIcon}
-          />
+        <TouchableOpacity onPress={logout} style={styles.logoutButton}>
+          <Image source={require('../assets/1723876.png')} style={styles.logoutIcon} />
         </TouchableOpacity>
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>© 2024 OceanTech. Todos os direitos reservados.</Text>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -56,53 +40,78 @@ const logout = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  subtitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#FFF',
   },
   backgroundImage: {
     flex: 1,
     width: '100%',
     height: '100%',
+  },
+  header: {
     justifyContent: 'center',
     alignItems: 'center',
+    paddingTop: 60,
+    paddingBottom: 20,
   },
-  row: {
+  title: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: '#FFF',
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+  },
+  buttonGrid: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 80,
-    height: '50%',
-    width: '90%',
-    backgroundColor: 'black',
-    alignItems: 'center',
-  },
-  buttonContainer: {
-    alignItems: 'center',
-    flex: 1,
-  },
-  helpButtonContainer: {
-    flexDirection: 'column',
+    flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 20,
+  },
+  button: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    borderRadius: 15,
+    margin: 10,
+    padding: 20,
+    width: '40%',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
   },
   buttonIcon: {
-    width: 100,
-    height: 100,
+    width: 50,
+    height: 50,
     marginBottom: 10,
   },
   buttonText: {
-    fontSize: 18,
-    color: '#FFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#0034ED',
+  },
+  logoutButton: {
+    position: 'absolute',
+    bottom: 60,
+    right: 20,
   },
   logoutIcon: {
     width: 50,
     height: 50,
-    marginBottom: 20,
+  },
+  footer: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'black',
+    paddingVertical: 10,
+  },
+  footerText: {
+    color: '#FFF',
+    fontSize: 14,
   },
 });
 

@@ -9,9 +9,14 @@ const Help = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../assets/laser para monitoramento dos oceanos - NASA - CALIOP.jpg')} style={styles.backgroundImage}>
-        <View style={styles.overlay}>
-          <Text style={styles.title}>COMO AJUDAR ?</Text>
+      <ImageBackground source={require('../assets/74ac2c024258adaa4088487bfc12214c.jpg')} style={styles.backgroundImage}>
+      <TouchableOpacity onPress={goToHome}> 
+          <Image
+            source={require('../assets/216242_home_icon.png')}
+            style={styles.logoutIcon}
+          />
+        </TouchableOpacity>
+        <View>
           <View style={styles.overlay}>
           <Text style={styles.title}>COMO AJUDAR ?</Text>
           <Text style={styles.text}>
@@ -44,16 +49,14 @@ const Help = ({ navigation }) => {
             {"\n\n"}
             <Text style={styles.topic}>Participação em Programas de Monitoramento:</Text>
             <Text style={styles.content}> Incentive a participação em programas de monitoramento da qualidade da água e da vida marinha, para ajudar cientistas e pesquisadores a entender melhor os ecossistemas oceânicos e identificar áreas de preocupação.</Text>
+            {"\n\n"}
           </Text>
           </View>
         </View>
-        <TouchableOpacity onPress={goToHome}> 
-          <Image
-            source={require('../assets/216242_home_icon.png')}
-            style={styles.logoutIcon}
-          />
-        </TouchableOpacity>
       </ImageBackground>
+      <View style={styles.footer}>
+          <Text style={styles.footerText}>© 2024 OceanTech. Todos os direitos reservados.</Text>
+        </View>
     </View>
   );
 };
@@ -68,6 +71,19 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  footer: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'black',
+    paddingVertical: 10,
+  },
+  footerText: {
+    color: '#FFF',
+    fontSize: 14,
   },
   overlay: {
     flex: 1,
