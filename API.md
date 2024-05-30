@@ -1,4 +1,4 @@
-Documentação dos endpoints utilizados nos componentes `Login`, `ForgotPassword` e `Register`, juntamente com exemplos de requisição e resposta para cada um deles.
+Documentação dos endpoints utilizados nos componentes `Login`, `ForgotPassword`, `Delete` e `Register`, juntamente com exemplos de requisição e resposta para cada um deles.
 
 ## 1. Endpoint `/users`
 
