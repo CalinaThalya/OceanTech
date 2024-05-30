@@ -10,12 +10,6 @@ const Vazamentos = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/74ac2c024258adaa4088487bfc12214c.jpg')} style={styles.backgroundImage}>
-      <TouchableOpacity onPress={goToHome}> 
-          <Image
-            source={require('../assets/216242_home_icon.png')}
-            style={styles.logoutIcon}
-          />
-        </TouchableOpacity>
         <View style={styles.overlay}>
         
           <Text style={styles.title}>Vazamentos</Text>

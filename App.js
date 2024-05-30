@@ -1,7 +1,8 @@
 import React from 'react';
+import { TouchableOpacity, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from './components/Home'
+import Home from './components/Home';
 import Login from './components/Login';
 import Help from './components/Help';
 import About from './components/About';
@@ -10,6 +11,19 @@ import ForgotPassword from './components/ForgoutPassaword';
 import Vazamentos from './components/Vazamentos';
 
 const Stack = createStackNavigator();
+
+const headerLeft = (navigation) => (
+  <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+    <Image
+      source={require('./assets/home.png')}  
+      style={{ width: 40, height: 40, marginLeft: 10 }}
+    />
+  </TouchableOpacity>
+);
+
+const screenOptions = {
+  headerTitle: '',  
+};
 
 const App = () => {
   return (
@@ -20,36 +34,45 @@ const App = () => {
           component={Login}
           options={{ headerShown: false }}
         />
-          <Stack.Screen
-          name="Home" 
+        <Stack.Screen
+          name="Home"
           component={Home}
-          options={{ title: 'Home' }} 
-          />
-           <Stack.Screen
-          name="Help" 
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Help"
           component={Help}
-          options={{ title: 'Help' }} 
-          />
-            <Stack.Screen
-          name="About" 
+          options={({ navigation }) => ({
+            ...screenOptions,
+            headerLeft: () => headerLeft(navigation),
+          })}
+        />
+        <Stack.Screen
+          name="About"
           component={About}
-          options={{ title: 'About' }} 
-          />
-           <Stack.Screen
-          name="Register" 
+          options={({ navigation }) => ({
+            ...screenOptions,
+            headerLeft: () => headerLeft(navigation),
+          })}
+        />
+        <Stack.Screen
+          name="Register"
           component={Register}
-          options={{ title: 'Register' }} 
-          />
-           <Stack.Screen
-          name="ForgotPassword" 
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="ForgotPassword"
           component={ForgotPassword}
-          options={{ title: 'ForgotPassword' }} 
-          />
-            <Stack.Screen
-          name="Vazamentos" 
+          options={screenOptions}
+        />
+        <Stack.Screen
+          name="Vazamentos"
           component={Vazamentos}
-          options={{ title: 'Vazamentos' }} 
-          />
+          options={({ navigation }) => ({
+            ...screenOptions,
+            headerLeft: () => headerLeft(navigation),
+          })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
