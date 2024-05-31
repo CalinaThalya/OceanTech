@@ -61,7 +61,7 @@ Este componente realiza a autenticação do usuário.
 ```json
 {
   "id": "1",
-  "nome": "Administador"
+  "nome": "Administrador",
   "email": "admin@teste.com",
   "senha": "abc123"
 }
@@ -152,18 +152,20 @@ Este componente é utilizado para listar todos os usuários cadastrados.
 
 ### Exemplo de Resposta
 ```json
-{
-  "users": [
-    {
-      "id": "1",
-      "nome": "Admin",
-      "email": "admin@teste.com",
-    },
-    {
-      "id": "751b",
-      "nome": "Pedro",
-      "email": "pedro@gmail.com",
-    }
-  ]
-}
+[
+  {
+    "id": "1",
+    "nome": "Administrador",
+    "email": "admin@teste.com",
+  },
+  {
+    "id": "4987",
+    "nome": "Vini",
+    "email": "vini@gmail.com",
+  },
+  {
+    "id": "c5b3",
+    "email": "calina@gmail.com",
+  }
+]
 ```
