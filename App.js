@@ -9,6 +9,10 @@ import About from './components/About';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgoutPassaword';
 import Vazamentos from './components/Vazamentos';
+import FlashMessage from 'react-native-flash-message';
+import DeleteAccount from './components/DeleteAccount';
+import Perfil from './components/Perfil';
+import UserList from './components/UserList';
 
 const Stack = createStackNavigator();
 
@@ -56,6 +60,14 @@ const App = () => {
           })}
         />
         <Stack.Screen
+          name="UserList"
+          component={UserList}
+          options={({ navigation }) => ({
+            ...screenOptions,
+            headerLeft: () => headerLeft(navigation),
+          })}
+        />
+        <Stack.Screen
           name="Register"
           component={Register}
           options={screenOptions}
@@ -64,6 +76,22 @@ const App = () => {
           name="ForgotPassword"
           component={ForgotPassword}
           options={screenOptions}
+        />
+        <Stack.Screen 
+          name="DeleteAccount"  
+          component={DeleteAccount}
+          options={({ navigation }) => ({
+            ...screenOptions,
+            headerLeft: () => headerLeft(navigation),
+          })}
+        />
+        <Stack.Screen 
+          name="Perfil"  
+          component={Perfil}
+          options={({ navigation }) => ({
+            ...screenOptions,
+            headerLeft: () => headerLeft(navigation),
+          })}
         />
         <Stack.Screen
           name="Vazamentos"
@@ -74,6 +102,7 @@ const App = () => {
           })}
         />
       </Stack.Navigator>
+      <FlashMessage position="top" />
     </NavigationContainer>
   );
 };

@@ -25,10 +25,15 @@ const Home = ({ navigation }) => {
             <Image source={require('../assets/7247540.png')} style={styles.buttonIcon} />
             <Text style={styles.buttonText}>Como ajudar?</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Perfil')}>
+            <Image source={require('../assets/perfil.png')} style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>Perfil</Text>
+          </TouchableOpacity>
         </View>
         <TouchableOpacity onPress={logout} style={styles.logoutButton}>
           <Image source={require('../assets/1723876.png')} style={styles.logoutIcon} />
         </TouchableOpacity>
+        
         <View style={styles.footer}>
           <Text style={styles.footerText}>© 2024 OceanTech. Todos os direitos reservados.</Text>
         </View>

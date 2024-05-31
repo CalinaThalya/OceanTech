@@ -3,9 +3,6 @@ import { View, ImageBackground, Text, StyleSheet, TouchableOpacity, Image } from
 
 const About = ({ navigation }) => {
 
-  const goToHome = () => {
-    navigation.navigate('Home');
-  };
 
   return (
     <View style={styles.container}>

@@ -3,10 +3,6 @@ import { View, ImageBackground, Text, StyleSheet, TouchableOpacity, Image } from
 
 const Vazamentos = ({ navigation }) => {
 
-  const goToHome = () => {
-    navigation.navigate('Home');
-  };
-
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../assets/74ac2c024258adaa4088487bfc12214c.jpg')} style={styles.backgroundImage}>

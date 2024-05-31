@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, ImageBackground, Text, TextInput, Button, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import axios from 'axios';
+import { showMessage } from 'react-native-flash-message';
+
 
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -15,12 +17,20 @@ const Login = ({ navigation }) => {
         if (user) {
           navigation.navigate('Home');
         } else {
-          Alert.alert('Erro', 'Usuário ou senha inválidos!');
+          showMessage({
+            message: 'Erro',
+            description: 'Usuário ou senha inválidos!',
+            type: 'danger',
+          });
         }
       })
       .catch(error => {
         console.error('Erro ao fazer login:', error);
-        Alert.alert('Erro', 'Ocorreu um erro ao fazer login.');
+        showMessage({
+          message: 'Erro',
+          description: 'Ocorreu um erro ao fazer login.',
+          type: 'danger',
+        });
       });
   };
 
