@@ -1,4 +1,12 @@
-Documentação dos endpoints utilizados nos componentes `Login`, `ForgotPassword`, `Delete` e `Register`, juntamente com exemplos de requisição e resposta para cada um deles.
+
+### Estado do CRUD
+- **Create:** Implementado no componente `Register`.
+- **Read:** Implementado nos componentes `Login`, `ForgotPassword`, `UserList`.
+- **Update:** Implementado no componente `ForgotPassword`.
+- **Delete:** Implementado no componente `DeleteAccount`.
+
+
+# Documentação dos endpoints utilizados nos componentes `Login`, `ForgotPassword`, `UserList`, `Delete` e `Register`, juntamente com exemplos de requisição e resposta para cada um deles.
 
 ## 1. Endpoint `/users`
 
@@ -11,20 +19,25 @@ Este endpoint é utilizado para recuperar a lista de usuários cadastrados.
 
 ### Exemplo de Resposta
 ```json
-{
-  "users": [
-    {
-      "id": "1",
-      "email": "admin@teste.com",
-      "senha": "abc123"
-    },
-    {
-      "id": "751b",
-      "email": "pedro@gmail.com",
-      "senha": "abc"
-    }
-  ]
-}
+[
+  {
+    "id": "1",
+    "nome": "Administrador",
+    "email": "admin@teste.com",
+    "senha": "abc123"
+  },
+  {
+    "id": "4987",
+    "nome": "Vini",
+    "email": "vini@gmail.com",
+    "senha": "123"
+  },
+  {
+    "id": "c5b3",
+    "email": "calina@gmail.com",
+    "senha": "abc123"
+  }
+]
 ```
 
 ## 2. Componente `Login`
@@ -48,6 +61,7 @@ Este componente realiza a autenticação do usuário.
 ```json
 {
   "id": "1",
+  "nome": "Administador"
   "email": "admin@teste.com",
   "senha": "abc123"
 }
@@ -56,7 +70,7 @@ Este componente realiza a autenticação do usuário.
 ## 3. Componente `ForgotPassword`
 
 ### Descrição
-Este componente é utilizado para redefinir a senha do usuário.
+Este componente é utilizado para atualizar a senha do usuário.
 
 ### Exemplo de Requisição
 - **Método HTTP:** GET
@@ -74,6 +88,7 @@ Este componente é utilizado para redefinir a senha do usuário.
 ```json
 {
   "id": "1",
+  "nome": "Administrador",
   "email": "admin@teste.com",
   "senha": "nova123"
 }
@@ -107,3 +122,48 @@ Este componente é utilizado para cadastrar um novo usuário.
 }
 ```
 
+## 5. Componente `DeleteAccount`
+
+### Descrição
+Este componente é utilizado para excluir a conta de um usuário.
+
+### Exemplo de Requisição
+- **Método HTTP:** DELETE
+- **URL:** `http://localhost:3000/users/:id`
+- **Corpo da Requisição:**
+```json
+{
+  "email": "admin@teste.com",
+  "senha": "abc123"
+}
+```
+
+### Exemplo de Resposta
+- **Status Code:** 204 No Content
+
+## 6. Componente `UserList`
+
+### Descrição
+Este componente é utilizado para listar todos os usuários cadastrados.
+
+### Exemplo de Requisição
+- **Método HTTP:** GET
+- **URL:** `http://localhost:3000/users`
+
+### Exemplo de Resposta
+```json
+{
+  "users": [
+    {
+      "id": "1",
+      "nome": "Admin",
+      "email": "admin@teste.com",
+    },
+    {
+      "id": "751b",
+      "nome": "Pedro",
+      "email": "pedro@gmail.com",
+    }
+  ]
+}
+```
