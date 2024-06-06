@@ -1,12 +1,13 @@
 
 ### Estado do CRUD
-- **Create:** Implementado no componente `Register`.
-- **Read:** Implementado nos componentes `Login`, `ForgotPassword`, `UserList`.
-- **Update:** Implementado no componente `ForgotPassword`.
-- **Delete:** Implementado no componente `DeleteAccount`.
+- **Create:** Implementado no componente `Register`, `fetchVazamentos`.
+- **Read:** Implementado nos componentes `Login`, `ForgotPassword`, `UserList`,`Vazamento`.
+- **Update:** Implementado no componente `ForgotPassword`,`handleEditVazamento`.
+- **Delete:** Implementado no componente `DeleteAccount`, `handleDeleteVazamento`.
 
 
-## Documentação dos endpoints utilizados nos componentes `Login`, `ForgotPassword`, `UserList`, `Delete` e `Register`, juntamente com exemplos de requisição e resposta para cada um deles.
+
+## Documentação dos endpoints utilizados nos componentes `Login`, `ForgotPassword`, `UserList`, `Delete`, `Vazamento` e `Register`, juntamente com exemplos de requisição e resposta para cada um deles.
 
 ## 1. Endpoint `/users`
 
@@ -169,3 +170,57 @@ Este componente é utilizado para listar todos os usuários cadastrados.
   }
 ]
 ```
+
+## 7. Endpoint `/vazamentos`
+
+### Descrição
+Este endpoint é utilizado para realizar operações CRUD nos vazamentos.
+
+### Exemplo de Requisição
+- **Método HTTP:** GET
+- **URL:** `http://localhost:3000/vazamentos`
+
+### Exemplo de Resposta
+```json
+"vazamentos": [
+    {
+      "title": "Vazamento de oleo",
+      "description": "Perto da petrobras, na cede de São Paulo",
+      "id": "1"
+    },
+    {
+      "id": "a87d",
+      "title": "derramamento de liquido",
+      "description": "um liquido marrom, escuro espesso caio na região proximo á copacabana, aparentemente estava vazando de um navio"
+    }
+  ]
+```
+
+### Exemplo de Requisição (Adicionar Vazamento)
+- **Método HTTP:** POST
+- **URL:** `http://localhost:3000/vazamentos`
+- **Corpo da Requisição:**
+```json
+{
+  "title": "Novo Vazamento",
+  "description": "Descrição do novo vazamento"
+}
+```
+
+### Exemplo de Resposta (Adicionar Vazamento)
+- **Status Code:** 201 Created
+```json
+{
+  "id": "3",
+  "title": "Novo Vazamento",
+  "description": "Descrição do novo vazamento"
+}
+```
+
+### Exemplo de Requisição (Deletar Vazamento)
+- **Método HTTP:** DELETE
+- **URL:** `http://localhost:3000/vazamentos/:id`
+
+### Exemplo de Resposta (Deletar Vazamento)
+- **Status Code:** 204 No Content
+
