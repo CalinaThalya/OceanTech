@@ -1,7 +1,7 @@
 
-### Estado do CRUD
-- **Create:** Implementado no componente `Register`, `fetchVazamentos`.
-- **Read:** Implementado nos componentes `Login`, `ForgotPassword`, `UserList`,`Vazamento`.
+### Estado do CRUDhandle
+- **Create:** Implementado no componente `Register`, `AddVazamento`.
+- **Read:** Implementado nos componentes `Login`, `ForgotPassword`, `UserList`,`fetchVazamentos`.
 - **Update:** Implementado no componente `ForgotPassword`,`handleEditVazamento`.
 - **Delete:** Implementado no componente `DeleteAccount`, `handleDeleteVazamento`.
 
